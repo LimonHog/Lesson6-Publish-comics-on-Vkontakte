@@ -1,7 +1,6 @@
 import requests
 import random
 import os
-import telegram
 from telegram_bot import post_a_photo
 
 
