@@ -24,13 +24,16 @@ def download_the_comic():
 
   
 def main():
-        load_dotenv()
-        bot_token = os.environ['TELEGRAM_TOKEN']
-        chat_id= os.environ['TELEGRAM_CHAT_ID']
+        try:
+                load_dotenv()
+                bot_token = os.environ['TELEGRAM_TOKEN']
+                chat_id= os.environ['TELEGRAM_CHAT_ID']
+
+                download_the_comic()
+                post_a_photo('comic.png', chat_id, bot_token)
         
-        download_the_comic()
-        post_a_photo('comic.png', chat_id, bot_token)
-        os.remove('comic.png')
+        finally:
+                os.remove('comic.png')
 
 
 if __name__ == '__main__':
