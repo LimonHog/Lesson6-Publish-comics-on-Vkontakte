@@ -28,7 +28,7 @@ def main():
         os.remove('comic.png')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
         main()
 
 
