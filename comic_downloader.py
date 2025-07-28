@@ -18,13 +18,18 @@ def download_the_comic():
 
         img_url = dif_res.json()['img']
         img_res = requests.get(img_url)
-        with open(f'comic{comic_num}.png', 'wb') as file:
+        with open('comic.png', 'wb') as file:
                 file.write(img_res.content)
-        post_a_photo(f'comic{comic_num}.png')
-        os.remove(f'comic{comic_num}.png')
 
-download_the_comic()
+  
+def main():
+        download_the_comic()
+        post_a_photo('comic.png')
+        os.remove('comic.png')
 
+
+if __name__ == "__main__":
+        main()
 
 
 
