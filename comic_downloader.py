@@ -1,6 +1,7 @@
 import requests
 import random
 import os
+from dotenv import load_dotenv
 from telegram_bot import post_a_photo
 
 
@@ -23,6 +24,7 @@ def download_the_comic():
 
   
 def main():
+        load_dotenv()
         download_the_comic()
         post_a_photo('comic.png')
         os.remove('comic.png')
