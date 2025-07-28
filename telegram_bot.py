@@ -2,8 +2,6 @@ import telegram
 from dotenv import load_dotenv
 import os
 
-# import time
-# import argparse
 
 load_dotenv()
 def post_a_photo(photo):
