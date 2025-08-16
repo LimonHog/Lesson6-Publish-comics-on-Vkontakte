@@ -14,13 +14,15 @@ def download_the_comic():
         max_num = response.json()['num']
         comic_num = random.randint(1, max_num)
 
-        different_comic = f'https://xkcd.com/{comic_num}/info.0.json'
-        dif_res = requests.get(different_comic)
+        comic = f'https://xkcd.com/{comic_num}/info.0.json'
+        comic_response = requests.get(comic)
+        comic_response.raise_for_status()
 
-        img_url = dif_res.json()['img']
-        img_res = requests.get(img_url)
+        img_url = comic_response.json()['img']
+        img_response = requests.get(img_url)
+        img_response.raise_for_status()
         with open('comic.png', 'wb') as file:
-                file.write(img_res.content)
+                file.write(img_response.content)
 
   
 def main():
@@ -38,6 +40,3 @@ def main():
 
 if __name__ == '__main__':
         main()
-
-
-
